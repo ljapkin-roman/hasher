@@ -15,6 +15,7 @@ class CreateVocabulariesTable extends Migration
     {
         Schema::create('vocabularies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('word');
             $table->timestamps();
         });
     }
