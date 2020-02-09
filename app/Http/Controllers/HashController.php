@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Vocabulary;
+use \App\User;
+use Illuminate\Support\Facades\Auth;
 
 class HashController extends Controller
 {
@@ -41,7 +43,7 @@ class HashController extends Controller
 	    $result = [];
             foreach ($data as $key => $value)
 	    {
-	 	if (strpos($key, $prefix) === 0) {
+	 	if (strpos($key, $prefix) === 0 and isset($value)) {
 			$keyWord = str_replace($prefix, '', $key);
 			$result[$keyWord]['hash'] = $value;
 			$keyWords[] = $keyWord;
@@ -58,6 +60,7 @@ class HashController extends Controller
 	    $prefix = 'hash_';
 	    $all = $request->all();
 	    $this->getHashMethod($all,$prefix);
+	    $id = Auth::id();
     }
 
     /**
