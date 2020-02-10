@@ -56,6 +56,8 @@ class HashController extends Controller
             $record->save();
         }
 
+        return redirect('/hasher/show');
+
     }
 
     /**
