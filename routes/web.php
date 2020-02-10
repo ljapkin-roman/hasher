@@ -26,3 +26,5 @@ Route::get('/data/{id}', 'DataController@getData');
 
 Route::get('/hasher', 'HashController@index');
 Route::post('/hasher', 'HashController@store');
+
+Route::get('/hasher/show', 'HashController@show');

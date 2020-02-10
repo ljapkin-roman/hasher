@@ -8,6 +8,6 @@ class Hash extends Model
 {
      public function user()
      {
-	     return $this->belonsTo(User::class);
+         return $this->belonsTo('App\User');
      }
 }

@@ -15,11 +15,12 @@ class CreateHashesTable extends Migration
     {
         Schema::create('hashes', function (Blueprint $table) {
             $table->bigIncrements('id');
-	    $table->index('user_id');
-	    $table->string('key');
-	    $table->string('algoritm');
-	    $table->string('hash');
+            $table->unsignedBigInteger('user_id');
+            $table->string('key');
+            $table->string('algoritm');
+            $table->string('hash');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
