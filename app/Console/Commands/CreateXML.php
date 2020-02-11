@@ -38,6 +38,8 @@ class CreateXML extends Command
      */
     public function handle()
     {
-            Storage::disk('local')->put('file.xml', 'Cotrast');
+	    $text = '<?xml version="1.0" encoding="UTF-8"?>/n';
+
+            Storage::disk('local')->put('file.xml', $text);
     }
 }
