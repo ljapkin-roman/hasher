@@ -52,20 +52,18 @@ class RegisterController extends Controller
      */
     protected function getUserData()
     {
-	$agent = new Agent();
+        $agent = new Agent();
 
-	$result = [];
-	$result['ip'] = \Request::ip();
-	$result['cookie_session'] = \Cookie::get('laravel_session');
-	$result['location'] = 'Not find';
-	$location = \Location::get($result['ip']);
-	if ($location !== false) {
-		$result['location'] =\Location::get($result['ip'])->countryName; 
-	}
-	$result['browser'] = $agent->browser();
-	return $result
-
-
+        $result = [];
+        $result['ip'] = \Request::ip();
+        $result['cookie_session'] = \Cookie::get('laravel_session');
+        $result['location'] = 'Not find';
+        $location = \Location::get($result['ip']);
+        if ($location !== false) {
+            $result['location'] =\Location::get($result['ip'])->countryName; 
+        }
+        $result['browser'] = $agent->browser();
+        return $result;
     }
     protected function validator(array $data)
     {
