@@ -50,11 +50,10 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function getUserData()
+    protected function getUserData($result)
     {
         $agent = new Agent();
 
-        $result = [];
         $result['ip'] = \Request::ip();
         $result['cookie_session'] = \Cookie::get('laravel_session');
         $result['location'] = 'Not find';
@@ -67,10 +66,14 @@ class RegisterController extends Controller
     }
     protected function validator(array $data)
     {
-	$this->getUserData();
+	    $data = $this->getUserData($data);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'ip' => ['required', 'string'],
+            'location' => ['required', 'string'],
+            'browser' => ['required', 'string'],
+            'cookie_session' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -83,9 +86,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+	    $data = $this->getUserData($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'ip' => $data['ip'],
+            'location' => $data['location'],
+            'browser' => $data['browser'],
+            'cookie_session' => $data['cookie_session'],
             'password' => Hash::make($data['password']),
         ]);
     }

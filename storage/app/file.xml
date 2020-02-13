@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
+<user_info>
+    <name> when </name> 
+    <user_ip> 127.0.0.1 </user_ip> 
+    <user_browser> Firefox </user_browser> 
+    <user_cookie> 9sTSpEBeH4vuzcWt8jWPNBDnvICyLYb9nsQYsb5T </user_cookie> 
+    <user_location> Not find </user_location> 
+</user_info>
+<user_info>
+    <name> konrad </name> 
+    <user_ip> 127.0.0.1 </user_ip> 
+    <user_browser> Firefox </user_browser> 
+    <user_cookie> NuI6cAUkQnXrsVMPzKZ5n2PFBJvNHf3XyDukIVAy </user_cookie> 
+    <user_location> Not find </user_location> 
+</user_info>
+<user_hashes>
+    <hash> 254637f72efcddb6a545bccbd0c3bb84e6393647deb5fd344de6584ccc1e743c </hash>
+    <hash> 66f47c3398759da294421b6f0eacd144d64194c9 </hash>
+    <hash> a3497f3e45b19383d39fa648574988a44eef1147 </hash>
+    <hash> b0ad6bc1931197750fa85336ba8eb6ced10ca7b57eff09ecacf9f915a3b11365 </hash>
+    <hash> 5f3c2632a80012e8db84c0b4156bba584a972dce6a3b16bf8003b58268e714ef11d333f98610dd8e0b5770dfd3cfb3a1b82d1e54969506607a41d0003d335e41 </hash>
+</user_hashes>

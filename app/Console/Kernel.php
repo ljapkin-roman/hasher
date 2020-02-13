@@ -24,9 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function() {
-            Storage::disk('local')->put('file.xml', 'Cotrast');
-        })->cron('11 * * * * *');
+        $schedule->command('file:create');
     }
 
     /**
