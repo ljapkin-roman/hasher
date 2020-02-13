@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('file:create');
+        $schedule->command('file:create')->cron('*/11 * * * *');
     }
 
     /**
