@@ -18,8 +18,10 @@ class HashController extends Controller
     public function index()
     {
         $words = \App\Vocabulary::all();
-        return view('hasher', [
-        'words' => $words]);
+        return view(
+            'hasher', [
+            'words' => $words]
+        );
     }
 
     /**
@@ -35,15 +37,15 @@ class HashController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-	    $prefix = 'hash_';
-	    $dataRequest = $request->all();
-	    $userHashes = $this->getHashMethod($dataRequest,$prefix);
-	    $id = Auth::id();
+        $prefix = 'hash_';
+        $dataRequest = $request->all();
+        $userHashes = $this->getHashMethod($dataRequest, $prefix);
+        $id = Auth::id();
         if (!isset($id)) {
             return redirect('/register');
         }
@@ -63,7 +65,7 @@ class HashController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show()
@@ -89,7 +91,7 @@ class HashController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -100,8 +102,8 @@ class HashController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -112,7 +114,7 @@ class HashController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -123,21 +125,21 @@ class HashController extends Controller
 
     private function getHashMethod($data,$prefix)
     {
-	    $keyWords = [];
-	    $result = [];
-            foreach ($data as $key => $value)
-	    {
-	 	if (strpos($key, $prefix) === 0 and isset($value)) {
-			$keyWord = str_replace($prefix, '', $key);
-			$result[$keyWord]['hash'] = $value;
-			$keyWords[] = $keyWord;
-	 	}	 
-	    }
+        $keyWords = [];
+        $result = [];
+        foreach ($data as $key => $value)
+        {
+            if (strpos($key, $prefix) === 0 and isset($value)) {
+                $keyWord = str_replace($prefix, '', $key);
+                $result[$keyWord]['hash'] = $value;
+                $keyWords[] = $keyWord;
+            }     
+        }
 
-	    foreach ($keyWords as $keyWord) {
-		    $result[$keyWord]['algoritm'] = $data[$keyWord];
-	    }
-	    return $result; 
+        foreach ($keyWords as $keyWord) {
+            $result[$keyWord]['algoritm'] = $data[$keyWord];
+        }
+        return $result; 
     }
 
     

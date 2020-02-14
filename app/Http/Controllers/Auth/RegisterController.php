@@ -47,7 +47,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function getUserData($result)
@@ -66,8 +66,9 @@ class RegisterController extends Controller
     }
     protected function validator(array $data)
     {
-	    $data = $this->getUserData($data);
-        return Validator::make($data, [
+        $data = $this->getUserData($data);
+        return Validator::make(
+            $data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'ip' => ['required', 'string'],
@@ -75,19 +76,21 @@ class RegisterController extends Controller
             'browser' => ['required', 'string'],
             'cookie_session' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+            ]
+        );
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
-	    $data = $this->getUserData($data);
-        return User::create([
+        $data = $this->getUserData($data);
+        return User::create(
+            [
             'name' => $data['name'],
             'email' => $data['email'],
             'ip' => $data['ip'],
@@ -95,6 +98,7 @@ class RegisterController extends Controller
             'browser' => $data['browser'],
             'cookie_session' => $data['cookie_session'],
             'password' => Hash::make($data['password']),
-        ]);
+            ]
+        );
     }
 }

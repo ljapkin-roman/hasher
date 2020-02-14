@@ -31,9 +31,12 @@ class CreateXML extends Command
     {
         parent::__construct();
     }
-    /** go on list all user and compile list with all info every user **/
+    /**
+     * go on list all user and compile list with all info every user 
+     **/
 
-    private function createTableInfo() {
+    private function createTableInfo()
+    {
         $users = User::all();
         $list = '';
         foreach ($users as $user) {
@@ -67,7 +70,7 @@ class CreateXML extends Command
      */
     public function handle()
     {
-	    $text = "<?xml version='1.0' encoding='UTF-8'?>\n";
+        $text = "<?xml version='1.0' encoding='UTF-8'?>\n";
         $text .= $this->createTableInfo(); 
         Storage::disk('local')->put('file.xml', $text);
     }
