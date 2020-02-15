@@ -1,11 +1,11 @@
 # Solution of test
-This  ([test](https://docs.google.com/document/d/1BbA0Sk9bc0FwcqKKQsRSiK-HfCu6TauXI2oCRMO7u_w/edit#heading=h.4akohdj391i9))
+This  [test](https://docs.google.com/document/d/1BbA0Sk9bc0FwcqKKQsRSiK-HfCu6TauXI2oCRMO7u_w/edit#heading=h.4akohdj391i9)
 I'm used 
  - Laravel 6.14
  - MySQL 5.7.29
- - ([location](https://github.com/stevebauman/location))
- - ([agent](https://github.com/jenssegers/agent)) 
- - ([CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)) 
+ - [location](https://github.com/stevebauman/location)
+ - [agent](https://github.com/jenssegers/agent) 
+ - [CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) 
  - npm
  - vue
 
@@ -30,3 +30,6 @@ The table "hashes" has columns "keys", "algortithm", "hash", "user_id". The colu
 # Creating xml file
 I didn't get which user has to store in a file xml hence i write all users in the file.
 The app gets a user's ip with help library "agent", a user's country with help library "location".The file which contains the info of the users is in directory "storage/app".
+
+# Getting a hash
+I wrote a small JS script that gets a hashing method selected by the user. Аfter the script makes a fetch request and return a hash. This hash'll be written on the page immediately. 
